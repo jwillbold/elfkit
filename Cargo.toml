@@ -11,6 +11,14 @@ description = """
 an elf parser and manipulation library in pure rust
 """
 
+[features]
+default = ["readelf", "linktree", "ld", "ldd"]
+readelf = []
+linktree = []
+ld = []
+ldd = []
+
+
 [dependencies]
 byteorder = "1"
 enum-primitive-derive = "0.1"
@@ -39,15 +47,19 @@ sha2 = "0.7.1"
 [[bin]]
 name="readelf"
 path="bin/readelf.rs"
+required-features = ["readelf"]
 
 [[bin]]
 name="linktree"
 path="bin/linktree.rs"
+required-features = ["linktree"]
 
 [[bin]]
 name="ld"
 path="bin/ld.rs"
+required-features = ["ld"]
 
 [[bin]]
 name="ldd"
 path="bin/ldd.rs"
+required-features = ["ldd"]
