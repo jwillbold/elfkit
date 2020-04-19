@@ -668,7 +668,13 @@ impl Elf {
     }
 
 
+    pub fn get_shstrtab(&self) -> Option<&Section> {
+        self.sections.get(self.header.shstrndx as usize)
+    }
 
+    pub fn get_shstrtab_mut(&mut self) -> Option<&mut Section> {
+        self.sections.get_mut(self.header.shstrndx as usize)
+    }
 
 
 
